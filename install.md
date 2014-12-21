@@ -4,7 +4,7 @@ Notes from me, [Eric Mill](https://twitter.com/konklone) as I installed Debian f
 
 ### You Will Need
 
-* **A computer.** I am using a Dell XPS 13, purchased through the Dell Ubuntu program:
+**A computer.** I am using a Dell XPS 13, purchased through the Dell Ubuntu program:
 
 > http://dell.com/ubuntu
 
@@ -12,14 +12,14 @@ The Dell Ubuntu program is managed by a friendly, competent team of Linux-friend
 
 Supporting Dell's program is a wonderful thing to do, and it's also just a **great goddamned laptop**.
 
-* **The Debian testing ISO.** Avi Kelman kindly maintains [a pointer to the version of Debian you probably want at [The Debian Gotham Needs](https://fiendish.github.io/The-Debian-Gotham-Needs/).
+**The Debian testing ISO.** Avi Kelman kindly maintains [a pointer to the version of Debian you probably want at [The Debian Gotham Needs](https://fiendish.github.io/The-Debian-Gotham-Needs/).
 
 It links you to a directory, which has one `.iso` file to download. When I did this, that was `firmware-7.7.0-amd64-netinst.iso`.
 
 It's the 64-bit version, with **non-free software enabled** (so that your wireless card will work). You can certainly go with other install paths for Debian. I elected to use the one I thought would give me the least trouble during the install process.
 
-* **A USB drive** with at least 1 GB of space.
-* **A USB network connection.** Like a smartphone that can tether a WiFi connection over USB, or a USB WiFi stick.
+**A USB drive** with at least 1 GB of space.
+**A USB network connection.** Like a smartphone that can tether a WiFi connection over USB, or a USB WiFi stick.
 
 
 ### Preparing to Install Debian
