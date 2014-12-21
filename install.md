@@ -13,7 +13,7 @@ I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
 > https://www.dell.com/ubuntu
 
-[![XPS shot medium](images/xps/hollywood-medium.jpg)](images/xps/hollywood-large.jpg)
+[![XPS shot medium](images/xps/xps-debian-medium.jpg)](images/xps/xps-debian-large.jpg)
 
 Dell calls their program [Project Sputnik](https://sputnik.github.io/), and it is managed by a friendly team of Linux engineers inside Dell who [partner with Ubuntu](http://partners.ubuntu.com/dell) to ensure that your computer will Just Work with Linux.
 
@@ -21,7 +21,7 @@ The Dell XPS is also used by multiple Debian team members, so your pain points w
 
 Supporting Dell's program is a wonderful thing to do, and it's also just a **great goddamned laptop**.
 
-![Hollywood](images/xps/hollywood-2.gif)
+[![Hollywood](images/xps/hollywood-2.gif)](http://blog.dustinkirkland.com/2014/12/hollywood-technodrama.html)
 
 ### You Will Also Need Debian
 
