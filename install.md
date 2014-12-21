@@ -194,39 +194,103 @@ Reboot the computer.
 
 ### Debian: First Boot
 
+On your first boot, you should end up at the new Debian-themed Grub boot loader. The default is what you want, and you can either hit Enter or it it will proceed automatically after a few seconds.
 
-Log in, test touch screen
+![First boot loader](images/install/35-real-boot.jpg)
 
-* su into root
-* apt-get install sudo
-* adduser [eric] sudo
-* log out, log in
+On your first boot, the disk decryption prompt is scary and stark. **We'll make this screen much nicer** in a moment, but for now just enter your disk decryption passphrase.
 
-* edit /etc/apt/sources.list
-  - add 'contrib non-free' to each entry ending in 'main'
-* sudo apt-get update
-* sudo apt-get install firmware-iwlwifi
-* reboot
+![First disk decrypt](images/install/36-first-decrypt.jpg)
 
-* set gnome scaling factor to your preference (1.25)
-* set iceweasel scaling factor
-* set chrome scaling factor
+You should end up at a pleasant login screen!
 
-### Making it home
+![Pleasant login screen](images/install/37-real-login.jpg)
 
-* I like keyboard shortcuts
-* static workspaces
+And after logging in with your user password, you should end up at a pleasant desktop!
 
-extensions
+![Pleasant desktop](images/install/38-real-desktop.jpg)
 
-* extensions.gnome.org WHAT
-* alternate tab
+Try [testing out your touch screen](https://www.youtube.com/watch?v=sowvI6FisUc).
 
-### Graphical boot
+Now we'll take care of a few things you'll almost certainly want around for day-to-day Debian use.
+
+#### Giving yourself sudo
+
+`sudo` doesn't ship with Debian. Become `root` to install it:
+
+```bash
+su
+```
+
+Install it with `apt`:
+
+```bash
+apt install sudo
+```
+
+Then add yourself to sudo. Replace `eric` with your username:
+
+```bash
+adduser eric sudo
+```
+
+**Log out and log in** to get this to take effect.
+
+#### Working WiFi
+
+Next, let's get your WiFi working. You'll have to install `non-free` packages, which is a bummer.
+
+Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
+
+```
+deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+# jessie-updates, previously known as 'volatile'
+deb http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
+
+# jessie-backports, previously on backports.debian.org
+deb http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
+```
+
+Then update your packages and install the wifi package:
+
+```bash
+sudo apt-get update
+sudo apt-get install firmware-iwlwifi
+```
+
+On your next boot, you should see working WiFi:
+
+![Working WiFi](images/install/39-wifi-working.jpg)
+
+#### Scaling up for the high-res screen
+
+You'll want to scale GNOME, and any web browsers you use to use a scaling factor of 125%.
+
+**In GNOME**, just run:
+
+```bash
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+```
+
+(There's a preferences pane for this, but it won't let you set decimal values.)
+
+**In Firefox or Iceweasel**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `1.25`.
+
+**In Chrome**, visit the Settings page at `chrome://settings/`, click "Show advanced settings..." and scroll down to "Web content", then set the "Page zoom" to `125%`.
+
+
+#### Graphical boot
 
 If you want your boot to look nicer, and to enter in your disk decryption password in a clean, well-lighted place, then you need to [install Plymouth](https://miguelmenendez.pro/en/articles/install-plymouth-debian-graphical-boot-animation-while-boot-shutdown.html).
 
-Install Plymouth:
+Start with:
 
 ```bash
 sudo apt install plymouth plymouth-themes
@@ -273,20 +337,27 @@ update-initramfs -u
 
 And reboot! You should see a nice graphical interface when it's time to enter your disk password. The lines background should even animate for a second during the decryption.
 
-
+![Plymouth working](images/install/40-plymouth-working.jpg)
 
 
 ### TODO
 
-* fill in the rest!
+Some notes for myself of stuff to do later:
 
+* I like keyboard shortcuts
+* extensions.gnome.org WHAT
+* alternate tab
 * get ubuntu fonts
 * swap ctrl + fn keys
 * why won't Delete delete things
-* how do I get two-dimensional virtual workspaces
+* static workspaces
+* workspace grid
+  - download zip of fork of workspace grid extension on github
+  - open up gnome-tweaks and load in .zip
+  - open up gnome-shell-extension-prefs and enable it
+  - on next boot/login it should work
 * how do I get Alt+Click to grab window
 * test out u2f instructions
   - if they work, update blog post to say debian also
-* update ubuntu repo to point to debian repo
-
+* update my personal ubuntu repo to point to debian repo
 * disable soft keyboard
