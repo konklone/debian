@@ -9,13 +9,19 @@ You will need:
 
 ### You Will Also Need A Computer
 
-I am using a Dell XPS 13, Developer edition, 4th generation, purchased through the Dell Ubuntu program:
+I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
-> http://dell.com/ubuntu
+> https://www.dell.com/ubuntu
 
-The Dell Ubuntu program is managed by a friendly, competent team of Linux-friendly folk inside Dell who ensure that your computer will Just Work with Linux. The Dell XPS is used by multiple Debian team members, so your pain points will be theirs, and they will fix things.
+[![XPS shot medium](images/xps/hollywood-medium.jpg)](images/xps/hollywood-large.jpg)
+
+Dell calls their program [Project Sputnik](https://sputnik.github.io/), and it is managed by a friendly team of Linux engineers inside Dell who [partner with Ubuntu](http://partners.ubuntu.com/dell) to ensure that your computer will Just Work with Linux.
+
+The Dell XPS is also used by multiple Debian team members, so your pain points will be theirs, and they're likely to quickly fix things.
 
 Supporting Dell's program is a wonderful thing to do, and it's also just a **great goddamned laptop**.
+
+![Hollywood](images/xps/hollywood-2.gif)
 
 ### You Will Also Need Debian
 
