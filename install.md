@@ -12,7 +12,7 @@ The Dell Ubuntu program is managed by a friendly, competent team of Linux-friend
 
 Supporting Dell's program is a wonderful thing to do, and it's also just a **great goddamned laptop**.
 
-**The Debian testing ISO.** Avi Kelman kindly maintains [a pointer to the version of Debian you probably want at [The Debian Gotham Needs](https://fiendish.github.io/The-Debian-Gotham-Needs/).
+**The Debian testing ISO.** Avi Kelman kindly maintains a pointer to the version of Debian you probably want at [The Debian Gotham Needs](https://fiendish.github.io/The-Debian-Gotham-Needs/).
 
 It links you to a directory, which has one `.iso` file to download. When I did this, that was `firmware-7.7.0-amd64-netinst.iso`.
 
