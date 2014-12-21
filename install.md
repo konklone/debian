@@ -58,7 +58,7 @@ You should be at the graphical installer screen.
 
 ![No network connection](images/install/2-no-network.jpg)
 
-* Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter` to return to this screen, and select `Retry Network`:
+* Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter` to return to this screen, and select `Detect Network Hardware`:
 
 ![Menu to retry connection](images/install/3-retry-network.jpg)
 
