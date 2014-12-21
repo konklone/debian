@@ -40,11 +40,13 @@ The instructions below assume the downloaded file has been renamed to `debian.is
 First, we'll be flashing the USB drive. From Ubuntu:
 
 * Find the device ID: it will probably look like `/dev/sdb`.
-* If the ISO has been renamed to `debian.iso`, and the device is `/dev/sdb`, run:
+* Assuming an ISO renamed to `debian.iso`, **replace** `/dev/sdX` with _your_ device name for the USB flash drive, and run:
 
 ```bash
 sudo dd if=debian.iso of=/dev/sdX
 ```
+
+Now we'll switch the computer to use UEFI, and then boot into the Debian installer from the flash drive.
 
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
@@ -53,10 +55,11 @@ sudo dd if=debian.iso of=/dev/sdX
 
 ![Switch to UEFI](images/install/01-uefi-boot.jpg)
 
-* **Warning:** After you turn on UEFI mode, you will not be able to boot back into whatever you were coming from (e.g. if you change your mind), unless you return here and switch this option back to Legacy Boot.
+**Warning:** After you turn on UEFI mode, you will not be able to boot back into whatever you were coming from (e.g. if you change your mind), unless you return here and switch this option back to Legacy Boot.
+
 * Reboot the machine by saving and exiting the BIOS.
 * On boot, **go into Boot Options** by pressing F2 while the Dell logo appears.
-* Select the USB drive under the UEFI section.
+* Select the USB drive under the UEFI section. In the screenshot below, it says `USB1-1`. (Don't worry if yours doesn't have a `debian` entry.)
 
 ![Choose USB to proceed](images/install/02-boot-to-installer.jpg)
 
@@ -158,7 +161,7 @@ The upside is your **entire disk is goddamn encrypted**, which makes you more sa
 
 ![Enter encryption passphrase](images/install/23-encryption-passphrase.jpg)
 
-![Verify encryption passphrase](images/install/24-encryption-passphrase-verify.jpg)
+![Verify encryption passphrase](images/install/24-encryption-pass-verify.jpg)
 
 * Then you'll get 2 confirmation prompts in sequence, to confirm that you want to write the partitions to disk. Go for it.
 
@@ -204,7 +207,7 @@ On your first boot, you should end up at the new Debian-themed Grub boot loader.
 
 ![First boot loader](images/install/35-real-boot.jpg)
 
-On your first boot, the disk decryption prompt is scary and stark. **We'll make this screen much nicer** in a moment, but for now just enter your disk decryption passphrase.
+On your first boot, the disk decryption prompt is scary and stark. **We'll make this screen much nicer on future boots** in a moment, but for now just enter your disk decryption passphrase.
 
 ![First disk decrypt](images/install/36-first-decrypt.jpg)
 
@@ -277,7 +280,7 @@ On your next boot, you should see working WiFi:
 
 #### Scaling up for the high-res screen
 
-You'll want to scale GNOME, and any web browsers you use to use a scaling factor of 125%.
+You'll want to scale GNOME, as well as any web browsers, to use a scaling factor of 125%.
 
 **In GNOME**, just run:
 
@@ -294,7 +297,9 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 #### Graphical boot
 
-If you want your boot to look nicer, and to enter in your disk decryption password in a clean, well-lighted place, then you need to [install Plymouth](https://miguelmenendez.pro/en/articles/install-plymouth-debian-graphical-boot-animation-while-boot-shutdown.html).
+Now we'll fix that scary decryption screen we saw on the first boot.
+
+To enter your disk decryption password in a clean, well-lighted place, you need to [install Plymouth](https://miguelmenendez.pro/en/articles/install-plymouth-debian-graphical-boot-animation-while-boot-shutdown.html).
 
 Start with:
 
@@ -326,22 +331,22 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 Update Grub to pick up the changes:
 
 ```bash
-update-grub2
+sudo update-grub2
 ```
 
 Set the default theme to `lines`:
 
 ```bash
-/usr/sbin/plymouth-set-default-theme lines
+sudo /usr/sbin/plymouth-set-default-theme lines
 ```
 
 Apply the changes:
 
 ```bash
-update-initramfs -u
+sudo update-initramfs -u
 ```
 
-And reboot! You should see a nice graphical interface when it's time to enter your disk password. The lines background should even animate for a second during the decryption.
+On your next boot, you should see a nice graphical interface when it's time to enter your disk password. The nice `lines` background should even animate for a second during the decryption.
 
 ![Plymouth working](images/install/40-plymouth-working.jpg)
 
@@ -350,7 +355,7 @@ And reboot! You should see a nice graphical interface when it's time to enter yo
 
 Thanks for reading! Enjoy the feeling of running a beautiful, powerful computer maintained by a global community of dedicated, passionate people that believe in a world of free software.
 
-That said, there's no easy Q&A archive like [Ask Ubuntu](https://askubuntu.com) for common problems. You're best off making friends in the Debian community, and asking around in the **#debian** IRC channel on `irc.oftc.net`.
+That said, there's no easy Q&A archive like [Ask Ubuntu](https://askubuntu.com) for common problems. You're best off making friends in the Debian community, and asking around in the **#debian** IRC channel on `irc.oftc.net`. Debian has [some tips for you](https://wiki.debian.org/GettingHelpOnIrc) on it.
 
 Friendship and computers are what Debian is all about!
 
