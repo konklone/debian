@@ -21,8 +21,6 @@ The Dell XPS is also used by multiple Debian team members, so your pain points w
 
 Supporting Dell's program is a wonderful thing to do, and it's also just a **great goddamned laptop**.
 
-[![Hollywood](images/xps/hollywood-2.gif)](http://blog.dustinkirkland.com/2014/12/hollywood-technodrama.html)
-
 ### You Will Also Need Debian
 
 Debian has `unstable`, `testing`, and `stable` versions.
@@ -347,6 +345,16 @@ And reboot! You should see a nice graphical interface when it's time to enter yo
 
 ![Plymouth working](images/install/40-plymouth-working.jpg)
 
+
+### Debian: Is Awesome
+
+Thanks for reading! Enjoy the feeling of running a beautiful, powerful computer maintained by a global community of dedicated, passionate people that believe in a world of free software.
+
+That said, there's no easy Q&A archive like [Ask Ubuntu](https://askubuntu.com) for common problems. You're best off making friends in the Debian community, and asking around in the **#debian** IRC channel on `irc.oftc.net`.
+
+Friendship and computers are what Debian is all about!
+
+[![Hollywood](images/xps/hollywood-2.gif)](http://blog.dustinkirkland.com/2014/12/hollywood-technodrama.html)
 
 ### TODO
 
