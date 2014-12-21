@@ -19,6 +19,7 @@ It links you to a directory, which has one `.iso` file to download. When I did t
 It's the 64-bit version, with **non-free software enabled** (so that your wireless card will work). You can certainly go with other install paths for Debian. I elected to use the one I thought would give me the least trouble during the install process.
 
 **A USB drive** with at least 1 GB of space.
+
 **A USB network connection.** Like a smartphone that can tether a WiFi connection over USB, or a USB WiFi stick.
 
 
