@@ -365,20 +365,20 @@ Friendship and computers are what Debian is all about!
 
 Some notes for myself of stuff to do later:
 
-* I like keyboard shortcuts
-* extensions.gnome.org WHAT
-* alternate tab
-* get ubuntu fonts
+* make some keyboard shortcuts
+* extensions.gnome.org
+* "alternate tab"
+* get ubuntu monospace font
 * swap ctrl + fn keys
-* why won't Delete delete things
+* why won't Delete delete things in the file explorer
 * static workspaces
 * workspace grid
   - download zip of fork of workspace grid extension on github
   - open up gnome-tweaks and load in .zip
   - open up gnome-shell-extension-prefs and enable it
   - on next boot/login it should work
-* how do I get Alt+Click to grab window
+* how do I get Alt+Click to grab window from anywhere
 * test out u2f instructions
   - if they work, update blog post to say debian also
 * update my personal ubuntu repo to point to debian repo
-* disable soft keyboard
+* disable soft keyboard that appears when touching text input area
