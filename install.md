@@ -31,9 +31,11 @@ Debian has `unstable`, `testing`, and `stable` versions.
 * `testing` runs 10 days behind `unstable`, and is probably what you want.
 * `stable` is (deliberately) quite out of date as it waits for software to prove itself, and because of that is extremely stable. It runs underwater robots.
 
-http://cdimage.debian.org/cdimage/jessie_di_beta_2/amd64/iso-cd/
+This guide uses the latest beta image, on the `testing` channel. As of writing, this was:
 
+> http://cdimage.debian.org/cdimage/jessie_di_beta_2/amd64/iso-cd/debian-jessie-DI-b2-amd64-netinst.iso
 
+The instructions below assume the downloaded file has been renamed to `debian.iso`.
 
 ### Preparing Debian for Installation
 
