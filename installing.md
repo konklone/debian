@@ -1,4 +1,4 @@
-## Installing Debian 7 on a Dell XPS
+## Installing Debian 8 on a Dell XPS
 
 Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian for the first time, onto a new laptop, with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
 
