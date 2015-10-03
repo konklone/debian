@@ -2,6 +2,8 @@
 
 Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian for the first time, onto a new laptop, with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
 
+To install Debian 8 onto a _Macbook Pro_, check out [Jessie Frazelle's tutorial](https://blog.jessfraz.com/post/linux-on-mac/).
+
 You will need:
 
 * **A USB drive** with at least 1 GB of space.
