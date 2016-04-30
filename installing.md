@@ -48,36 +48,29 @@ First, we'll be flashing the USB drive. From Ubuntu:
 sudo dd if=debian.iso of=/dev/sdX
 ```
 
-Now we'll switch the computer to use UEFI, and then boot into the Debian installer from the flash drive.
+Now we'll tell the computer to boot from the USB drive first.
 
+* Plug in the flashed USB drive to the XPS.
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
-* Go to the `Boot` menu.
-* Switch the `Boot List Option` to `UEFI`, and the `Load Legacy Option Rom` option to `Disabled`.
-
-![Switch to UEFI](images/install/01-uefi-boot.jpg)
-
-**Warning:** After you turn on UEFI mode, you will not be able to boot back into whatever you were coming from (e.g. if you change your mind), unless you return here and switch this option back to Legacy Boot.
-
-* Reboot the machine by saving and exiting the BIOS.
-* On boot, **go into Boot Options** by pressing F2 while the Dell logo appears.
-* Select the USB drive under the UEFI section. In the screenshot below, it says `USB1-1`. (Don't worry if yours doesn't have a `debian` entry.)
-
-![Choose USB to proceed](images/install/02-boot-to-installer.jpg)
+* Go to the `Boot Sequence` subsection of the `General` section, and use the arrows to move the `ubuntu` section (or whatever is there) down, and move the `UEFI: 5.00, Partition 1` (or whatever the USB drive is represented as) up. 
+* Go to the `Secure Boot Enable` subsection of the `Secure Boot` section, and disable secure boot. (Debian [does not support UEFI Secure Boot yet](https://wiki.debian.org/UEFI). Sadness.)
+* Use the `Apply` button, and confirm the popup dialog that appears.
+* `Exit` the BIOS screen. The computer will restart.
 
 You should soon see the Debian install screen pop up.
 
 ### Installing Debian
 
-You should be at the graphical installer screen.
+You should be at the installer screen.
 
-![Graphical installer](images/install/03-installer.jpg)
+![Debian installer screen](images/install/03-installer.jpg)
 
 **General warning:** The installer has "Go Back" options laid throughout the process. It may not always do what you think. While it will usually be fine, and as much as I hate to say it: try to get each step right the first time. If you end up "Going Back" and it doesn't look like you've actually gone back, consider starting over fresh.
 
 **General encouragement:** There's a lot of steps, but this is all super easy. You will be just fine.
 
-* Pick the top option, `Install`.
+* Pick the **second option**, `Install`.
 
 * Choose your language (e.g. `English`), your country (e.g. `United States`), and your key map (e.g. 'American English').
 
