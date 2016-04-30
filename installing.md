@@ -281,9 +281,7 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 (There's a preferences pane for this, but it won't let you set decimal values.)
 
-**In Firefox or Iceweasel**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `1.25`.
-
-**In Chrome**, visit the Settings page at `chrome://settings/`, click "Show advanced settings..." and scroll down to "Web content", then set the "Page zoom" to `125%`.
+**In Firefox**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `2.25`. (Note: `2.25`, not `1.25`.)
 
 
 #### Graphical boot
