@@ -196,7 +196,7 @@ The upside is your **entire disk is goddamn encrypted**, which makes you more sa
 
 ![Participate in analytics](images/install/32-statistics.jpg)
 
-* It will ask about what pieces of the system you'd like to install. The defaults are fine: "Debian desktop", "GNOME", "print server", "standard system utilities".
+* It will ask about what pieces of the system you'd like to install. I recommend changing from "MATE" to "GNOME" so that the selections are: "Debian desktop", "GNOME", "print server", "standard system utilities".
 
 ![The parts of Debian you need](images/install/33-tasksel.jpg)
 
@@ -256,21 +256,7 @@ Next, let's get your WiFi working. You'll have to install `non-free` packages, w
 
 Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
 
-```
-deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
-
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
-
-# jessie-updates, previously known as 'volatile'
-deb http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
-
-# jessie-backports, previously on backports.debian.org
-deb http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
-```
+__TODO__: paste contents of sources.list
 
 Then update your packages and install the wifi package:
 
