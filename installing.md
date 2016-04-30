@@ -54,7 +54,13 @@ Now we'll tell the computer to boot from the USB drive first.
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
 * Go to the `Boot Sequence` subsection of the `General` section, and use the arrows to move the `ubuntu` section (or whatever is there) down, and move the `UEFI: 5.00, Partition 1` (or whatever the USB drive is represented as) up. 
+
+![Adjust boot sequence](images/install/01-uefi-boot-order.jpg)
+
 * Go to the `Secure Boot Enable` subsection of the `Secure Boot` section, and disable secure boot. (Debian [does not support UEFI Secure Boot yet](https://wiki.debian.org/UEFI). Sadness.)
+
+![Adjust boot sequence](images/install/02-secure-boot-disable.jpg)
+
 * Use the `Apply` button, and confirm the popup dialog that appears.
 * `Exit` the BIOS screen. The computer will restart.
 
@@ -80,7 +86,11 @@ You should be at the installer screen.
 
 ![Pick your keymap](images/install/06-keyboard-map.jpg)
 
-* Then it will try to find a network connection. Maybe it'll work with your WiFi, but it failed for me:
+* Then it will try to find a network connection. It's likely to say that it can't use your WiFi card without installing new packages.
+
+![Pick your keymap](images/install/06.5-wifi-failure.jpg)
+
+* Say `No`. You'll arrive at a screen showing you options:
 
 ![No network connection](images/install/07-no-network.jpg)
 
@@ -132,17 +142,17 @@ I'm going for **full disk encryption**. The Debian installer makes this super ea
 
 The upside is your **entire disk is goddamn encrypted**, which makes you more safe from attackers the world over. And **it's so easy**: besides the boot password, there's no impact on usability. I strongly recommend it.
 
-* To encrypt, go with the third option:
+* To encrypt, go with the third option ("encrypted LVM"):
 
 ![Choose encryption](images/install/18-pick-encryption.jpg)
-
-* Just put everything on one partition.
-
-![All on one partition](images/install/19-all-on-one-partition.jpg)
 
 * It will ask you to confirm which disk you want to encrypt and write Debian to. Make sure you pick your actual hard drive, not the USB flash drive.
 
 ![Confirm the disk](images/install/20-confirm-the-disk.jpg)
+
+* Just put everything on one partition.
+
+![All on one partition](images/install/19-all-on-one-partition.jpg)
 
 * It'll ask you to really confirm what you're about to do:
 
