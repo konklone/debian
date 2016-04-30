@@ -230,19 +230,7 @@ Now we'll take care of a few things you'll almost certainly want around for day-
 
 #### Giving yourself sudo
 
-`sudo` doesn't ship with Debian. Become `root` to install it:
-
-```bash
-su
-```
-
-Install it with `apt`:
-
-```bash
-apt install sudo
-```
-
-Then add yourself to sudo. Replace `eric` with your username:
+Add yourself to sudo. Replace `eric` with your username:
 
 ```bash
 adduser eric sudo
