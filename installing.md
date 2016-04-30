@@ -1,6 +1,6 @@
 ## Installing Debian 8 on a Dell XPS
 
-Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian for the first time, onto a new laptop, with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
+Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
 
 To install Debian 8 onto a _Macbook Pro_, check out [Jessie Frazelle's tutorial](https://blog.jessfraz.com/post/linux-on-mac/).
 
@@ -13,7 +13,7 @@ You will need:
 
 I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
-> https://www.dell.com/ubuntu
+> https://www.dell.com/sputnik
 
 [![XPS shot medium](images/xps/xps-debian-medium.jpg)](images/xps/xps-debian-large.jpg)
 
@@ -31,9 +31,9 @@ Debian has `unstable`, `testing`, and `stable` versions.
 * `testing` runs 10 days behind `unstable`, and is probably what you want.
 * `stable` is (deliberately) quite out of date as it waits for software to prove itself, and because of that is extremely stable. It runs underwater robots.
 
-This guide uses the latest beta image, on the `testing` channel. As of writing, this was:
+This guide uses the latest beta image, on the `testing` channel. As of writing, the [latest listed Debian testing CD](http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/) was:
 
-> http://cdimage.debian.org/cdimage/jessie_di_beta_2/amd64/iso-cd/debian-jessie-DI-b2-amd64-netinst.iso
+> http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso
 
 The instructions below assume the downloaded file has been renamed to `debian.iso`.
 
