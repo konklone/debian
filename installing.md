@@ -11,6 +11,8 @@ You will need:
 
 ### You Will Also Need A Computer
 
+__TODO__: Update with model and photo of new computer below
+
 I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
 > https://www.dell.com/sputnik
@@ -244,7 +246,13 @@ Next, let's get your WiFi working. You'll have to install `non-free` packages, w
 
 Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
 
-__TODO__: paste contents of sources.list
+```
+deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ stretch main contrib non-free
+
+deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
+```
 
 Then update your packages and install the wifi package:
 
@@ -256,6 +264,18 @@ sudo apt-get install firmware-iwlwifi
 On your next boot, you should see working WiFi:
 
 ![Working WiFi](images/install/39-wifi-working.jpg)
+
+### Possible horrific graphics issues
+
+If you have stuttering and occasional graphics failure, especially while using web browsers, you may be experiencing an issue with an outdated libdrm package.
+
+After updating my apt sources to get WiFi working as described above, I ran:
+
+```
+sudo apt-get install libdrm-amdgpu1
+```
+
+This updated me to version `2.4.68-1`, which seemed to ease these issues for me considerably.
 
 #### Scaling up for the high-res screen
 
