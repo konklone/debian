@@ -382,3 +382,21 @@ Some notes for myself of stuff to do later:
 * test out u2f instructions
   - if they work, update blog post to say debian also
 * update my personal ubuntu repo to point to debian repo
+* 
+
+### Jay Say 
+
+I'm loving Stretch as my primary OS on a mac pro and a HP dv7 laptop. The only reason I even have OSX now is music for Logic Pro. Been on debian/ubuntu for a year now deb for the last 6/mo. I really enjoy it and don't plan on going back to osx. I've got native video drivers on UEFI working and all hardware on a Mac Pro 3,1, Macbook Pro 6,2 and the HP lap. I've figured out many little things about the OS I'll try to add some that mayyyy help who knows. I've considered plenty of times contributing to Gnome Shell, it is a lot of CSS and Javascript which is good for me ;) This might have been a better email than a pull request...
+
+* http://askubuntu.com/a/613573 - How I got native nvidia drivers going on my Mac Pro 3,1/UEFI. My favorite stationary machine for Linux, was very surprised how well everything works. 32gb in it, 3,1 was the first 64-bit Mac Pro tower and they over built it. Getting native 3d drivers working made life more fun, still doing Quake 3 FPS as my only gaming experience. I digress.
+* Any time you may experience trouble in Gnome Shell, hit Alt+F2 and before you even see any dialog type "r" and hit enter. This will restart Gnome shell only, not your apps and save your session in many "total freeze" like scenarios.
+* sudo apt-get install ttf-freefont ttf-bitstream-vera ttf-dejavu ttf-liberation (before the next step for fonts, installs required fonts for the infinality package)
+* For nice font rendering easily more like Ubuntu in Debian I like to use Infinality. The instructions that I used were from here (https://www.linuxbabe.com/desktop-linux/improve-font-rendering-on-debian-8-by-install-infinality-and-google-fonts). Replace trusty in those commands with your release (jessie,stretch etc..) I liked Ubuntu's DejaVu fonts so I used their Linux setting with the setstyle command and then I also go into Tweak Tool and change the Cantarell Fonts all to DejaVu Book.
+* sudo apt-get install activity-log-manager - Mmanage the "journal" service the OS keeps of your actions by default. Some people called this spyware in Ubuntu but it's in debian as well.
+* I disable "edge tiling" that maximizes a window in Gnome Shell when you drag it to the top of the screen (gsettings set org.gnome.shell.overrides edge-tiling false)
+* Gnome Shell extensions I have installed - OpenWeather,Freon(sudo apt-get install lm-sensors first),Dash to Dock,Clipboard Indicator,Steal my Focus,Transprent Top Bar.
+* Spotify runs nicely for me if you do that for music (https://www.spotify.com/us/download/linux/)
+* Redshift like fl.ux on Mac for night-time colors (sudo apt-get install redshift redshift-gtk), to configure (http://jonls.dk/redshift/#configuration-options)
+* You may laugh and return to the terminal but sometimes Git GUI's are helpful (sudo apt-get install gitg)
+* There are countless other things I've had to tweak, if you have anything else you'd like to customize I may know how. jason@arcanalabs.com
+
