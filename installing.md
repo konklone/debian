@@ -17,7 +17,7 @@ I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
 > https://www.dell.com/sputnik
 
-[![XPS shot medium](images/xps/xps-debian-medium.jpg)](images/xps/xps-debian-large.jpg)
+[![XPS shot medium](images/xps/new-xps-with-cat.jpg)](images/xps/new-xps-with-cat.jpg)
 
 Dell calls their program [Project Sputnik](https://sputnik.github.io/), and it is managed by a friendly team of Linux engineers inside Dell who [partner with Ubuntu](http://partners.ubuntu.com/dell) to ensure that your computer will Just Work with Linux.
 
@@ -55,7 +55,7 @@ Now we'll tell the computer to boot from the USB drive first.
 * Plug in the flashed USB drive to the XPS.
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
-* Go to the `Boot Sequence` subsection of the `General` section, and use the arrows to move the `ubuntu` section (or whatever is there) down, and move the `UEFI: 5.00, Partition 1` (or whatever the USB drive is represented as) up. 
+* Go to the `Boot Sequence` subsection of the `General` section, and use the arrows to move the `ubuntu` section (or whatever is there) down, and move the `UEFI: 5.00, Partition 1` (or whatever the USB drive is represented as) up.
 
 ![Adjust boot sequence](images/install/01-uefi-boot-order.jpg)
 
