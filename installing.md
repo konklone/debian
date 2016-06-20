@@ -1,6 +1,6 @@
 ## Installing Debian 8 on a Dell XPS
 
-Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian for the first time, onto a new laptop, with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
+Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian with sage advice and spiritual guidance from [Paul Tagliamonte](https://twitter.com/paultag).
 
 To install Debian 8 onto a _Macbook Pro_, check out [Jessie Frazelle's tutorial](https://blog.jessfraz.com/post/linux-on-mac/).
 
@@ -11,11 +11,13 @@ You will need:
 
 ### You Will Also Need A Computer
 
+__TODO__: Update with model and photo of new computer below
+
 I am using a Dell XPS 13 purchased through the Dell Ubuntu program:
 
-> https://www.dell.com/ubuntu
+> https://www.dell.com/sputnik
 
-[![XPS shot medium](images/xps/xps-debian-medium.jpg)](images/xps/xps-debian-large.jpg)
+[![XPS shot medium](images/xps/new-xps-with-cat.jpg)](images/xps/new-xps-with-cat.jpg)
 
 Dell calls their program [Project Sputnik](https://sputnik.github.io/), and it is managed by a friendly team of Linux engineers inside Dell who [partner with Ubuntu](http://partners.ubuntu.com/dell) to ensure that your computer will Just Work with Linux.
 
@@ -31,9 +33,9 @@ Debian has `unstable`, `testing`, and `stable` versions.
 * `testing` runs 10 days behind `unstable`, and is probably what you want.
 * `stable` is (deliberately) quite out of date as it waits for software to prove itself, and because of that is extremely stable. It runs underwater robots.
 
-This guide uses the latest beta image, on the `testing` channel. As of writing, this was:
+This guide uses the latest beta image, on the `testing` channel. As of writing, the [latest listed Debian testing CD](http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/) was:
 
-> http://cdimage.debian.org/cdimage/jessie_di_beta_2/amd64/iso-cd/debian-jessie-DI-b2-amd64-netinst.iso
+> http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso
 
 The instructions below assume the downloaded file has been renamed to `debian.iso`.
 
@@ -48,36 +50,33 @@ First, we'll be flashing the USB drive. From Ubuntu:
 sudo dd if=debian.iso of=/dev/sdX
 ```
 
-Now we'll switch the computer to use UEFI, and then boot into the Debian installer from the flash drive.
+Now we'll tell the computer to boot from the USB drive first.
 
+* Plug in the flashed USB drive to the XPS.
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
-* Go to the `Boot` menu.
-* Switch the `Boot List Option` to `UEFI`, and the `Load Legacy Option Rom` option to `Disabled`.
+* Go to the `Secure Boot Enable` subsection of the `Secure Boot` section, and disable secure boot. (Debian [does not support UEFI Secure Boot yet](https://wiki.debian.org/UEFI). Sadness.)
 
-![Switch to UEFI](images/install/01-uefi-boot.jpg)
+![Adjust boot sequence](images/install/02-secure-boot-disable.jpg)
 
-**Warning:** After you turn on UEFI mode, you will not be able to boot back into whatever you were coming from (e.g. if you change your mind), unless you return here and switch this option back to Legacy Boot.
-
-* Reboot the machine by saving and exiting the BIOS.
-* On boot, **go into Boot Options** by pressing F2 while the Dell logo appears.
-* Select the USB drive under the UEFI section. In the screenshot below, it says `USB1-1`. (Don't worry if yours doesn't have a `debian` entry.)
-
-![Choose USB to proceed](images/install/02-boot-to-installer.jpg)
+* Use the `Apply` button, and confirm the popup dialog that appears.
+* `Exit` the BIOS screen. The computer will restart.
+* On boot, **go into the one-time boot screen** by pressing F12 while the Dell logo appears.
+* Select the option that looks like your USB drive.
 
 You should soon see the Debian install screen pop up.
 
 ### Installing Debian
 
-You should be at the graphical installer screen.
+You should be at the installer screen.
 
-![Graphical installer](images/install/03-installer.jpg)
+![Debian installer screen](images/install/03-installer.jpg)
 
 **General warning:** The installer has "Go Back" options laid throughout the process. It may not always do what you think. While it will usually be fine, and as much as I hate to say it: try to get each step right the first time. If you end up "Going Back" and it doesn't look like you've actually gone back, consider starting over fresh.
 
 **General encouragement:** There's a lot of steps, but this is all super easy. You will be just fine.
 
-* Pick the top option, `Install`.
+* Pick the **second option**, `Install`.
 
 * Choose your language (e.g. `English`), your country (e.g. `United States`), and your key map (e.g. 'American English').
 
@@ -87,11 +86,15 @@ You should be at the graphical installer screen.
 
 ![Pick your keymap](images/install/06-keyboard-map.jpg)
 
-* Then it will try to find a network connection. Maybe it'll work with your WiFi, but it failed for me:
+* Then it will try to find a network connection. It's likely to say that it can't use your WiFi card without installing new packages. Say `No`.
+
+![Pick your keymap](images/install/06.5-wifi-failure.jpg)
+
+* You'll arrive at a screen showing you options. **Don't** select "no ethernet card". Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter`.
 
 ![No network connection](images/install/07-no-network.jpg)
 
-* Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter` to return to this screen, and select `Detect Network Hardware`:
+* That will take you here. Select `Detect Network Hardware`:
 
 ![Menu to retry connection](images/install/08-retry-network.jpg)
 
@@ -139,19 +142,19 @@ I'm going for **full disk encryption**. The Debian installer makes this super ea
 
 The upside is your **entire disk is goddamn encrypted**, which makes you more safe from attackers the world over. And **it's so easy**: besides the boot password, there's no impact on usability. I strongly recommend it.
 
-* To encrypt, go with the third option:
+* To encrypt, go with the third option ("encrypted LVM"):
 
 ![Choose encryption](images/install/18-pick-encryption.jpg)
-
-* Just put everything on one partition.
-
-![All on one partition](images/install/19-all-on-one-partition.jpg)
 
 * It will ask you to confirm which disk you want to encrypt and write Debian to. Make sure you pick your actual hard drive, not the USB flash drive.
 
 ![Confirm the disk](images/install/20-confirm-the-disk.jpg)
 
-* It'll ask you to really confirm what you're about to do:
+* Just put everything on one partition.
+
+![All on one partition](images/install/19-all-on-one-partition.jpg)
+
+* It'll ask you to really confirm what you're about to do. Say `Yes`:
 
 ![Really confirm it](images/install/21-really-confirm.jpg)
 
@@ -193,7 +196,7 @@ The upside is your **entire disk is goddamn encrypted**, which makes you more sa
 
 ![Participate in analytics](images/install/32-statistics.jpg)
 
-* It will ask about what pieces of the system you'd like to install. The defaults are fine: "Debian desktop", "GNOME", "print server", "standard system utilities".
+* It will ask about what pieces of the system you'd like to install. I recommend changing from "MATE" to "GNOME" so that the selections are: "Debian desktop", "GNOME", "print server", "standard system utilities".
 
 ![The parts of Debian you need](images/install/33-tasksel.jpg)
 
@@ -227,15 +230,10 @@ Now we'll take care of a few things you'll almost certainly want around for day-
 
 #### Giving yourself sudo
 
-`sudo` doesn't ship with Debian. Become `root` to install it:
+First, become root and install sudo:
 
-```bash
-su
 ```
-
-Install it with `apt`:
-
-```bash
+su
 apt install sudo
 ```
 
@@ -247,33 +245,35 @@ adduser eric sudo
 
 **Log out and log in** to get this to take effect.
 
-#### Working WiFi
+#### Installing nonfree graphics firmware
 
-Next, let's get your WiFi working. You'll have to install `non-free` packages, which is a bummer.
+It's a bummer, but nonfree software is necessary to have working WiFi, a non-buggy graphics card, and to use a graphical boot screen when typing in the decryption password.
+
+I observed at least one hard graphics crash/freeze before installing this firmware. If you observe this, try installing the firmware and seeing if it occurs again.
 
 Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
 
 ```
-deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
+deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ stretch main contrib non-free
 
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
-
-# jessie-updates, previously known as 'volatile'
-deb http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie-updates main contrib non-free
-
-# jessie-backports, previously on backports.debian.org
-deb http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie-backports main contrib non-free
+deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
 ```
 
-Then update your packages and install the wifi package:
+Then update `apt` and install the nonfree firmware:
+
+```
+sudo apt update
+sudo apt install firmware-linux-nonfree
+```
+
+#### Working WiFi
+
+Next, let's get your WiFi working. You'll need to have installed non-free firmware (see above).
 
 ```bash
-sudo apt-get update
-sudo apt-get install firmware-iwlwifi
+sudo apt install firmware-iwlwifi
 ```
 
 On your next boot, you should see working WiFi:
@@ -292,16 +292,15 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 (There's a preferences pane for this, but it won't let you set decimal values.)
 
-**In Firefox or Iceweasel**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `1.25`.
-
-**In Chrome**, visit the Settings page at `chrome://settings/`, click "Show advanced settings..." and scroll down to "Web content", then set the "Page zoom" to `125%`.
-
+**In Firefox**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `2.25`. (Yes, `2.25`.)
 
 #### Graphical boot
 
-Now we'll fix that scary decryption screen we saw on the first boot.
+Now we'll fix that scary decryption screen we saw on the first boot. You'll need to have installed non-free firmware (see above).
 
 To enter your disk decryption password in a clean, well-lighted place, you need to [install Plymouth](https://miguelmenendez.pro/en/articles/install-plymouth-debian-graphical-boot-animation-while-boot-shutdown.html).
+
+You'll also need to install necessary non-free firmware.
 
 Start with:
 
