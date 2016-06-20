@@ -230,7 +230,14 @@ Now we'll take care of a few things you'll almost certainly want around for day-
 
 #### Giving yourself sudo
 
-Add yourself to sudo. Replace `eric` with your username:
+First, become root and install sudo:
+
+```
+su
+apt install sudo
+```
+
+Then add yourself to sudo. Replace `eric` with your username:
 
 ```bash
 adduser eric sudo
@@ -238,9 +245,11 @@ adduser eric sudo
 
 **Log out and log in** to get this to take effect.
 
-#### Working WiFi
+#### Installing nonfree graphics firmware
 
-Next, let's get your WiFi working. You'll have to install `non-free` packages, which is a bummer.
+It's a bummer, but nonfree software is necessary to have working WiFi, a non-buggy graphics card, and to use a graphical boot screen when typing in the decryption password.
+
+I observed at least one hard graphics crash/freeze before installing this firmware. If you observe this, try installing the firmware and seeing if it occurs again.
 
 Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
 
@@ -252,11 +261,19 @@ deb http://security.debian.org/debian-security stretch/updates main contrib non-
 deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
 ```
 
-Then update your packages and install the wifi package:
+Then update `apt` and install the nonfree firmware:
+
+```
+sudo apt update
+sudo apt install firmware-linux-nonfree
+```
+
+#### Working WiFi
+
+Next, let's get your WiFi working. You'll need to have installed non-free firmware (see above).
 
 ```bash
-sudo apt-get update
-sudo apt-get install firmware-iwlwifi
+sudo apt install firmware-iwlwifi
 ```
 
 On your next boot, you should see working WiFi:
@@ -275,14 +292,15 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
 
 (There's a preferences pane for this, but it won't let you set decimal values.)
 
-**In Firefox**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `2.25`. (Note: `2.25`, not `1.25`.)
-
+**In Firefox**, visit about:config, and search for "css". Find `layout.css.devPixelsPerPx` and change the value from `-1.0` (system default) to `2.25`. (Yes, `2.25`.)
 
 #### Graphical boot
 
-Now we'll fix that scary decryption screen we saw on the first boot.
+Now we'll fix that scary decryption screen we saw on the first boot. You'll need to have installed non-free firmware (see above).
 
 To enter your disk decryption password in a clean, well-lighted place, you need to [install Plymouth](https://miguelmenendez.pro/en/articles/install-plymouth-debian-graphical-boot-animation-while-boot-shutdown.html).
+
+You'll also need to install necessary non-free firmware.
 
 Start with:
 
