@@ -55,16 +55,14 @@ Now we'll tell the computer to boot from the USB drive first.
 * Plug in the flashed USB drive to the XPS.
 * Reboot the computer.
 * On boot, **go into the BIOS** by pressing F2 while the Dell logo appears.
-* Go to the `Boot Sequence` subsection of the `General` section, and use the arrows to move the `ubuntu` section (or whatever is there) down, and move the `UEFI: 5.00, Partition 1` (or whatever the USB drive is represented as) up.
-
-![Adjust boot sequence](images/install/01-uefi-boot-order.jpg)
-
 * Go to the `Secure Boot Enable` subsection of the `Secure Boot` section, and disable secure boot. (Debian [does not support UEFI Secure Boot yet](https://wiki.debian.org/UEFI). Sadness.)
 
 ![Adjust boot sequence](images/install/02-secure-boot-disable.jpg)
 
 * Use the `Apply` button, and confirm the popup dialog that appears.
 * `Exit` the BIOS screen. The computer will restart.
+* On boot, **go into the one-time boot screen** by pressing F12 while the Dell logo appears.
+* Select the option that looks like your USB drive.
 
 You should soon see the Debian install screen pop up.
 
