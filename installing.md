@@ -263,18 +263,6 @@ On your next boot, you should see working WiFi:
 
 ![Working WiFi](images/install/39-wifi-working.jpg)
 
-### Possible horrific graphics issues
-
-If you have stuttering and occasional graphics failure, especially while using web browsers, you may be experiencing an issue with an outdated libdrm package.
-
-After updating my apt sources to get WiFi working as described above, I ran:
-
-```
-sudo apt-get install libdrm-amdgpu1
-```
-
-This updated me to version `2.4.68-1`, which seemed to ease these issues for me considerably.
-
 #### Scaling up for the high-res screen
 
 You'll want to scale GNOME, as well as any web browsers, to use a scaling factor of 125%.
