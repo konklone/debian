@@ -86,15 +86,15 @@ You should be at the installer screen.
 
 ![Pick your keymap](images/install/06-keyboard-map.jpg)
 
-* Then it will try to find a network connection. It's likely to say that it can't use your WiFi card without installing new packages.
+* Then it will try to find a network connection. It's likely to say that it can't use your WiFi card without installing new packages. Say `No`.
 
 ![Pick your keymap](images/install/06.5-wifi-failure.jpg)
 
-* Say `No`. You'll arrive at a screen showing you options:
+* You'll arrive at a screen showing you options. **Don't** select "no ethernet card". Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter`.
 
 ![No network connection](images/install/07-no-network.jpg)
 
-* Plug in your USB network connection. Hit `Tab` to highlight `Go Back`, then hit `Enter` to return to this screen, and select `Detect Network Hardware`:
+* That will take you here. Select `Detect Network Hardware`:
 
 ![Menu to retry connection](images/install/08-retry-network.jpg)
 
@@ -154,7 +154,7 @@ The upside is your **entire disk is goddamn encrypted**, which makes you more sa
 
 ![All on one partition](images/install/19-all-on-one-partition.jpg)
 
-* It'll ask you to really confirm what you're about to do:
+* It'll ask you to really confirm what you're about to do. Say `Yes`:
 
 ![Really confirm it](images/install/21-really-confirm.jpg)
 
