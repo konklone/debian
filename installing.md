@@ -4,6 +4,8 @@ Notes from me, [Eric Mill](https://twitter.com/konklone), as I installed Debian 
 
 To install Debian 8 onto a _Macbook Pro_, check out [Jessie Frazelle's tutorial](https://blog.jessfraz.com/post/linux-on-mac/).
 
+Note that on the 2016 XPS model, **nonfree software is required** for a stable graphics card, [after installing Debian itself](#installing-nonfree-graphics-firmware).
+
 You will need:
 
 * **A USB drive** with at least 1 GB of space.
@@ -247,9 +249,7 @@ adduser eric sudo
 
 #### Installing nonfree graphics firmware
 
-It's a bummer, but nonfree software is necessary to have working WiFi, a non-buggy graphics card, and to use a graphical boot screen when typing in the decryption password.
-
-I observed at least one hard graphics crash/freeze before installing this firmware. If you observe this, try installing the firmware and seeing if it occurs again.
+It's a bummer, but nonfree software is necessary to have working WiFi, a non-buggy graphics card, and to use a graphical boot screen when typing in the decryption password. I observed at least one hard graphics crash/freeze before installing this firmware.
 
 Edit `/etc/apt/sources.list` to add `contrib non-free` to the end of each entry. Mine ended up looking like this:
 
