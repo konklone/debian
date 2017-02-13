@@ -2,13 +2,13 @@
 Install wine:
 
 ```bash
-apt-get install wine
+apt install wine
 ```
 
 Install winetricks:
 
 ```bash
-wget winetricks.googlecode.com/git/src/winetricks
+wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod 755 winetricks
 ```
 
